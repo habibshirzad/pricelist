@@ -100,37 +100,14 @@ export default {
         }
     },
     mounted () {
-        axios.get('http://pricelist.maint.kz/profile/magaz/filters/', {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-            },
-            proxy: {
-                host: '95.46.8.112',
-                port: 1080,
-                auth: {
-                    username: 'anime',
-                    password: 'govno'
-                },
-            }
-        }).then(response => {
+        axios.get('http://159.89.98.114:3005/proxy?address=http://pricelist.maint.kz/profile/magaz/filters/').then(response => {
             this.filters = response.data
         }).catch(error =>{
             console.log(error);
         });
         
-        axios.get('http://pricelist.maint.kz/profile/magaz/products/', {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-            },
-            proxy: {
-                host: '95.46.8.112',
-                port: 1080,
-                auth: {
-                    username: 'anime',
-                    password: 'govno'
-                },
-            }
-        }).then(response => {
+        axios.get('http://159.89.98.114:3005/proxy?address=http://pricelist.maint.kz/profile/magaz/products/')
+        .then(response => {
              this.products = response.data
         })
         }
