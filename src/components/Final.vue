@@ -100,13 +100,13 @@ export default {
         }
     },
     mounted () {
-        axios.get('https://pricelist.maint.kz/profile/magaz/filters/').then(response => {
+        axios.get('http://pricelist.maint.kz/profile/magaz/filters/').then(response => {
             this.filters = response.data
         }).catch(error =>{
             console.log(error);
         });
         
-        axios.get('https://pricelist.maint.kz/profile/magaz/products/').then(response => {
+        axios.get('http://pricelist.maint.kz/profile/magaz/products/').then(response => {
              this.products = response.data
         })
         }
