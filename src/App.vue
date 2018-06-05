@@ -18,10 +18,10 @@ export default {
   }
 }
 </script>
+<style src="@/assets/css/awesome.css"></style>
+<style src="@/assets/css/style.css"></style>
+<style src="@/assets/css/responsive.css"></style>
 
 <style>
-body{
-  background:#fefefe
-}
-  
+
 </style>
