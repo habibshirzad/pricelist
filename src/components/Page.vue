@@ -104,12 +104,17 @@
         </div>
     </header>
     <!--    mobile header-->
-
     <section class="pc">
         <div class="container">
             <div class="main">
                 <nav>
                     <p class="nav-title">{{mainFilter.name}}</p>
+
+
+                    <!-- <button @click="filterAndCalculateDiscount(value)" v-for="newfilter in newfilteredProducts" :key="newfilter.id">New filter</button> -->
+                    <button >New filter</button>
+
+
                     <div class="nav-box" >
                         <ul   v-for="value in mainFilter.values" :key="value.id">
                             <li class="list"  @click="filterAndCalculateDiscount(value)">{{value.name}}
@@ -142,8 +147,9 @@
                             <td width="13%">Описание</td>
                             <td width="8%">Наличие <br>(остаток на складе)</td>
                             <td width="4%">Единицы <br>измерени</td>
-                            <td width="5%">Цена</td>
-                        </tr>
+                            <td width="5%">Ваша Ценa</td>
+                            <td width="5%">Рекомендованная ценa</td>
+                        </tr>   
                         <tr v-for="product in filteredProducts" :key="product.name">
                             <td><div class="img-box">
                                 <img class="image" :src="`http://pricelist.maint.kz/profile/uploads/pricelist/${product.image}`" alt="">
@@ -155,6 +161,7 @@
                             <td>{{product.availability}}</td>
                             <td>{{product.unit}}</td>
                             <td>{{product.price - (product.price * discount) / 100}}</td>
+                            <td>{{product.price}}</td>
                         </tr>
                        
                        
@@ -165,8 +172,6 @@
             </div>
         </div>
     </section>
-
-
     <!--    mobile section-->
     <section class="mobile">
         <div class="mobile-box">
@@ -261,6 +266,7 @@ export default {
             }
         },
         filterAndCalculateDiscount (value) {
+            // this.newfilteredProducts = this.products.filter(item=>item.section_id === value.id)
             this.filteredProducts = this.products.filter(item => item.section_id === value.id)
             this.getDiscount(value.sales[0].name)
         },
