@@ -78,20 +78,7 @@
                     <!-- <span class="count dark">0</span> -->
                 </a>
             </div>
-            <!-- <div class="mob-flex gray">
-                <a href="#" class="mob-flex-item border">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <a href="#" class="mob-flex-item border">
-                    <span>МЕНЮ</span>
-                </a>
-                <a href="#" class="mob-flex-item border">
-                    <i class="fa fa-phone"></i>
-                </a>
-                <a href="#" class="mob-flex-item">
-                    <i class="fa fa-search"></i>
-                </a>
-            </div> -->
+    
         </div>
         <div class="mob-header-img" style="margin-right:0px">
             <slider animation="fade">
@@ -111,8 +98,8 @@
                     <p class="nav-title">{{mainFilter.name}}</p>
 
 
-                    <!-- <button @click="filterAndCalculateDiscount(value)" v-for="newfilter in newfilteredProducts" :key="newfilter.id">New filter</button> -->
-                    <button >New filter</button>
+                    
+                    <button v-on:click="newproduct" >New filter</button>
 
 
                     <div class="nav-box" >
@@ -264,6 +251,9 @@ export default {
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover'
             }
+        },
+        newproduct(){
+            this.filteredProducts = this.products
         },
         filterAndCalculateDiscount (value) {
             // this.newfilteredProducts = this.products.filter(item=>item.section_id === value.id)
